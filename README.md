@@ -320,3 +320,25 @@ contoh:
    hasil : maka hasilnya adalah 30
    // Begitu juga dengan operator yang lainnya, tambahkan saja di depannya.
 ```
+
+### Perbandingan
+
+> Operator perbandingan : <, >, <=, >=, ==
+
+```PHP [Assignment]
+   <?php
+
+   var_dump(1 < 5);
+
+   ?>
+   hasil : maka hasilnya adalah bool(true)
+```
+
+```PHP [Assignment]
+   <?php
+
+   var_dump(6 < 5);
+
+   ?>
+   hasil : maka hasilnya adalah bool(false)
+```
