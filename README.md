@@ -148,3 +148,64 @@ Ketika kita membuat website dengan HTML, CSS dan JavaScript itu disebutnya Clien
   <hr>
 
 # Sintax PHP
+
+1. Menggunakan buka dan tutup dengan tag `<?php?>` <br>
+
+```PHP
+   <?php
+      echo "Hello World!";
+   ?>
+```
+
+2. Standart Output menggunakan `echo, print, print_r, var_dump` <br>
+
+```PHP [echo]
+   <?php
+      echo "Ini pakai echo";
+      hasilnya : "Ini pakai echo"
+   ?>
+```
+
+```PHP [print]
+   <?php
+      print "Ini pakai print";
+      hasilnya : "Ini pakai print"
+   ?>
+```
+
+```PHP [print_r]
+   <?php
+      print_r ("Lerian Febriana");
+      hasilnya : "Lerian Febriana"
+   ?>
+   // untuk melihat isi dari array (digunakan untuk debugging)
+```
+
+```PHP [var_dump]
+   <?php
+      var_dump ("Hello!");
+   ?>
+   hasilnya : string(6) "Hello!"
+   // untuk melihat isi dari variabel (digunakan untuk debugging)
+```
+
+```PHP [boolean]
+   <?php
+      echo true;
+   ?>
+   hasilnya : 1
+
+   <?php
+      echo false;
+   ?>
+   hasilnya : null (kosong)
+```
+
+## Penulisan PHP di dalam HTML
+
+```HTML [PHP Inline]
+   <h1>Hallo, <?php echo "Lerian Febriana"; ?></h1>
+   <p><?php echo "Ini adalah paragraph, penjelasan"; ?></p>
+```
+
+## Penulisan HTML di dalam PHP
