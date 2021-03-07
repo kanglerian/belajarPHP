@@ -209,3 +209,114 @@ Ketika kita membuat website dengan HTML, CSS dan JavaScript itu disebutnya Clien
 ```
 
 ## Penulisan HTML di dalam PHP
+
+```PHP [HTML Inline]
+   <?php
+      echo "<h1>Hallo, ini HTML Inline></h1>";
+   ?>
+```
+
+<hr>
+
+## Variabel dan Tipe Data
+
+> Variabel tidak boleh diawali dengan angka <br>
+> Variabel boleh mengandung angka
+
+```PHP [Variabel]
+   <?php
+   $nama = "Lerian Febriana";
+   ?>
+   <!DOCTYPE html>
+   <html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+   </head>
+
+   <body>
+      <h1>Hallo, <?= $nama; ?></h1>
+   </body>
+
+   </html>
+```
+
+```PHP [kalau pakai ""]
+   <?php
+
+   $nama = "Lerian Febriana";
+   echo "Halo nama saya $nama";
+
+   ?>
+   hasil : maka hasilnya "Halo nama saya Lerian Febriana" nah itu benar
+```
+
+```PHP [kalau pakai '']
+   <?php
+
+   $nama = "Lerian Febriana";
+   echo 'Halo nama saya $nama';
+
+   ?>
+   hasil : maka hasilnya "Halo nama saya $nama" nah itu jelek
+```
+
+```PHP [concatenation / penggabungan string]
+   <?php
+
+   $nama_depan = "Lerian";
+   $nama_belakang = "Febriana";
+   $nama_lengkap = $nama_depan . " " . $nama_belakang;
+
+    echo "Halo nama saya $nama_lengkap";
+
+   ?>
+   hasil : maka hasilnya "Halo nama saya Lerian Febriana"
+```
+
+<hr>
+
+## Operator
+
+### Aritmatika
+
+> Aritmatika operatornya : + - / \* %
+
+```PHP [inline]
+   <?php
+
+   echo 1 + 1;
+
+   ?>
+   hasil : maka hasilnya adalah 2
+```
+
+```PHP [Variabel]
+   <?php
+   $x = 10;
+   $y = 20;
+   echo $x + $y;
+
+   ?>
+   hasil : maka hasilnya adalah 30
+```
+
+### Assignment
+
+> Operator penugasan yaitu : =, +=, -=, \*=, /=, %=, .=
+
+contoh:
+
+```PHP [Assignment]
+   <?php
+   $x = 10;
+   $y += 20;
+   echo $x;
+
+   ?>
+   hasil : maka hasilnya adalah 30
+   // Begitu juga dengan operator yang lainnya, tambahkan saja di depannya.
+```
