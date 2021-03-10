@@ -323,7 +323,7 @@ contoh:
 
 ### Perbandingan
 
-> Operator perbandingan : <, >, <=, >=, ==
+> Operator perbandingan : <, >, <=, >=, ==, !=
 
 ```PHP [Assignment]
    <?php
@@ -342,3 +342,75 @@ contoh:
    ?>
    hasil : maka hasilnya adalah bool(false)
 ```
+
+### Identitas
+
+> Operator Identitas : ===, !==
+
+```PHP
+<?php
+   var_dump(1 === "1");
+?>
+   hasil : maka hasilnya adalah false, karena tipe datanya berbeda (string)
+```
+
+### Logika
+
+> Operator logika : && and, || or, ! not
+
+```PHP
+   $x = 10;
+   var_dump($x < 20 && $x % 2 == 0);
+   hasil : maka hasilnya adalah true, karena X lebih kecil dari 20 dan X jika dibagi 2 sisanya 0.
+```
+
+# Control Flow (Struktur Kendali)
+
+alur bagaimana program kita dibaca oleh Intrepreter PHP. Normalnya dibaca dari atas ke bawah, dari kiri ke kanan. Ini kita bisa atur sendiri.
+
+## Pengulangan
+
+Ketika ingin mengerjakan sebuah blok program tanpa menulis ulang script. Disini kita akan belajar dengan
+
+- **for** <br>
+
+  ```PHP
+  <?php
+     for (inisialisasi, kondisi terminasi, increament/decrement)
+  ?>
+  ```
+
+  note : inisialisasi menentukan variabel awal untuk pengulangan, kondisi terminasi untuk memberhentikan pengulangan, increment atau decrement agar pengulangannya bisa maju atau mundur
+
+  ```PHP
+  <?php
+  for( $i = 0; $i < 5; $i++ ){
+     echo "Hello World! ";
+  }
+  ?>
+  ```
+
+  note : maka hasilnya akan ada `Hello World!` sebanyak 5 kali secara horizontal.
+
+- **while** <br>
+  selama kondisinya true, maka lakukan yang ada di dalam bracketnya.
+
+  ```PHP
+  $i = 0;
+  while( $i < 5 ){
+     echo "Hello World";
+  $i++;
+  }
+  ```
+
+  note : jika kita lupa menambahkan increment maka akan terjadi looping forever.
+
+- do while
+- foreach (digunakan untuk array)
+
+## Pengkondisian
+
+- if.. else
+- if.. else if.. else
+- ternary (menggantikan if dan else menjadi sederhana)
+- switch
