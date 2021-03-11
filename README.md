@@ -405,12 +405,81 @@ Ketika ingin mengerjakan sebuah blok program tanpa menulis ulang script. Disini 
 
   note : jika kita lupa menambahkan increment maka akan terjadi looping forever.
 
-- do while
-- foreach (digunakan untuk array)
+- **do while** <br>
+  Lakukan ini (do) selama hasilnya true (while).
+
+  ```PHP
+  $i = 0;
+  do {
+     echo "Hello World!";
+  $i++;
+  } while ($i < 5)
+  ```
+
+  hasil : maka hasilnya adalah 5 kali pengulangan `hello world` secara horizontal.
+
+  Nah, apa perbedaannya? perbedaannya terletak ketika hasil akhirnya adalah `false`, dia tetap melakukan pengulangan 1x yang artinya jika disini maka akan mengeluarkan tek `Hello World!`.
+
+- **foreach (digunakan untuk array)** <br>
+
+- **Contoh sederhana Latihan 1** <br>
+
+  ```PHP
+     <table border="1" cellspacing="0" cellpadding="10">
+        <?php
+        for ($i = 1; $i <= 3; $i++) {
+              echo "<tr>";
+              for ($j = 1; $j <= 5; $j++) {
+                 echo "<td>$i,$j</td>";
+              }
+              echo "</tr>";
+        }
+        ?>
+     </table>
+  ```
+
+  ![ImagePHP](/images/result-looping.png)
+
+  atau <br>
+
+  ```PHP
+     <table border="1" cellspacing="0" cellpadding="10">
+        <?php for($i = 1; $i <= 3; $i++) : ?>
+            <tr>
+               <?php for($j = 1; $j <= 5; $j++ ) : ?>
+                  <td><?= "$i,$j"; ?></td>
+               <?php endfor; ?>
+            </tr>
+        <?php endfor; ?>
+     </table>
+  ```
 
 ## Pengkondisian
 
-- if.. else
-- if.. else if.. else
+- **if.. else** <br>
+
+  ```PHP
+   $x = 10;
+   if($x < 20){
+      echo "Benar";
+   }else {
+      echo "Salah";
+   }
+  ```
+
+- **if.. elfeif.. else** <br>
+
+  ```PHP
+   $x = 30;
+   if($x < 20){
+      echo "Benar";
+   }elseif($x == 20){
+      echo "Bingo!";
+   }
+   else {
+      echo "Salah";
+   }
+  ```
+
 - ternary (menggantikan if dan else menjadi sederhana)
 - switch
