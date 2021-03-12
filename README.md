@@ -483,3 +483,118 @@ Ketika ingin mengerjakan sebuah blok program tanpa menulis ulang script. Disini 
 
 - ternary (menggantikan if dan else menjadi sederhana)
 - switch
+
+# Function
+
+Potongan baris baris kode yang akan mempermudah kita dalam membuat program. Kode program ini kita bisa kasih nama dan kita panggil berulang-ulang.
+
+## **Built in function** <br>
+
+Date/Time : time(), date(), mktime(), strtotime()
+
+- **Date**
+
+```PHP Date
+<?php
+   echo date("l, d-M-Y");
+?>
+hasinya: Friday, 12-Maret-2021
+```
+
+- **Time**
+
+```PHP Time
+<?php
+   // ini akan menampilkan waktu dari tanggal 1 januari 1970
+   echo time();
+?>
+```
+
+- **Latihan**
+
+```PHP Time Latihan
+<?php
+echo date("l", time() + 172800);
+?>
+hasilnya: 2 hari dari hari ketika kode di eksekusi. Nilai 172800 adalah 2 hari dari sekarang berupa detik. 60 * 60 * 24 * 2
+```
+
+```PHP Time Latihan 2
+<?php
+echo date("d M Y", time() + 60 * 60 * 24 * 2);
+?>
+hasilnya: 2 hari dari sekarang
+```
+
+- **mktime** <br>
+  Membuat detik sendiri dengan mktime(0,0,0,0,0,0), jam menit detik bulan tanggal tahun
+
+  ```PHP Ulang Tahun
+   <?php
+   echo mktime(0,0,0,26,2,1998);
+   ?>
+   hasilnya: 949446000
+  ```
+
+  ```PHP Ulang Tahun Result
+  <?php
+  echo date("l", mktime(0,0,0,26,2,1998));
+  ?>
+  hasilnya: Thursday
+  ```
+
+- **strtotime** <br>
+
+```PHP
+<?php
+echo strtotime("25 aug 1985");
+?>
+```
+
+- **String** : **strnlen()** untuk mengukur panjang string, **strcmp()** untuk menggabungkan string, **explode()** memecah string menjadi array, contoh mengambil nama sebuah file, nama dan ekstensi. **htmlspecialchars()** menjaga dari hacker
+
+- **Utility** : **var_dump()** mencetak array atau object, atau string pada saat debugging. **isset()** apakah sebuah variabel sudah dibuat. **empty()** apakah variabel yg ada kosong atau tidak. **die()** memberhentikan program. **sleep()** berhenti dengan waktu tertentu
+
+## User Defined function
+
+Kita membuat sendiri function, ketika membuat project terkadang kita harus membuat sebuah function secara manual.
+
+- **Membuat function salam**
+
+  ```PHP
+  <?php
+   function salam(){
+      return "Halo selamat datang!";
+   }
+  ?>
+  <html>
+    <head>
+      <title>Sapa</title>
+    </head>
+    <body>
+      <h1><?= salam(); ?></h1>
+    </body>
+  </html>
+  ```
+
+  > maka hasilnya : Halo selamat datang!
+
+- **Membuat function salam dengan parameters** <br>
+
+  ```PHP
+  <?php
+     function salam($waktu = "datang", $nama = "Peserta didik baru"){
+        return "Halo selamat $waktu $nama!";
+     }
+  ?>
+  <html>
+     <head>
+        <title>Sapa</title>
+     </head>
+     <body>
+        <h1><?= salam("pagi", "Lerian"); ?></h1>
+     </body>
+  </html>
+  ```
+
+  > maka hasilnya: Halo selamat pagi Lerian. Jika parameters tidak diisi maka akan menghasilkan Halo selamat datang Peserta didik baru.
