@@ -598,3 +598,156 @@ Kita membuat sendiri function, ketika membuat project terkadang kita harus membu
   ```
 
   > maka hasilnya: Halo selamat pagi Lerian. Jika parameters tidak diisi maka akan menghasilkan Halo selamat datang Peserta didik baru.
+
+# Array
+
+Sebuah variabel yang bisa menampung lebih dari 1 nilai. Kenapa kita memerlukannya? seperti tempat pensil warna. Repot ketika kita harus mencari warna tertentu jika pensilnya tidak disimpan disebuah tempat. Jika menggunakan sebuah tempat pensil, maka akan tersimpan dengan rapih dan gampang dicari.
+
+```PHP cara lama
+<?php
+   $hari = array("Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu");
+?>
+```
+
+```PHP cara baru
+<?php
+   $bulan = ["Januari","Februari","Maret","April","Mei","Juni"];
+?>
+```
+
+> Tipe data pada array boleh berbeda, contohnya element-element bisa digabung antara string, integer boolean dan lain lain.
+
+## Cara menampilkan Array Debugging
+
+- **var_dump**<br>
+
+  ```PHP
+  <?php
+     $hari = ["Senin", "Selasa", "Rabu"];
+     var_dump($hari);
+  ?>
+  ```
+
+  hasilnya : array(3) { [0]=> string(5) "Senin" [1]=> string(6) "Selasa" [2]=> string(4) "Rabu" }
+
+  > array pasangannya antara **key** dan **value**, key-nya adalah index yang dimulai dari 0.
+
+- **print_r**<br>
+
+  ```PHP
+  <?php
+    $hari = ["Senin", "Selasa", "Rabu"];
+    print_r($hari);
+  ?>
+  ```
+
+  hasilnya : Array ( [0] => Senin [1] => Selasa [2] => Rabu )
+
+- **Menampilkan satu element** <br>
+  tampilkan hari selasa. Gunakan perintah `echo` untuk menampilkannya.
+
+  ```PHP
+  <?php
+     $hari = ["Senin","Selasa","Rabu"];
+     echo $hari[1];
+  ?>
+  ```
+
+  hasilnya: Selasa
+
+## Menambahkan element baru pada Array
+
+- **Tambah element di akhir**
+
+  ```PHP
+  <?php
+     $hari = ["Senin","Selasa","Rabu"];
+     $hari[] = "Kamis";
+  ?>
+  ```
+
+  hasilnya: array(4) { [0]=> string(5) "Senin" [1]=> string(6) "Selasa" [2]=> string(4) "Rabu" [3]=> string(5) "Kamis" }
+
+## Menampilkan Array (pengulangan)
+
+- **Gunakan `for` untuk menampilkan di website.**
+
+```PHP
+<?php
+$hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"]
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari-hari</title>
+<style>
+   div {
+         height: 50px;
+         width: 70px;
+         line-height: 50px;
+         background-color: salmon;
+         margin: 3px;
+         float: left;
+         text-align: center;
+   }
+</style>
+</head>
+
+<body>
+
+<?php for ($i = 0; $i < count($hari); $i++) : ?>
+   <div> <?= $hari[$i]; ?> </div>
+<?php endfor; ?>
+
+</body>
+
+</html>
+```
+
+- **Menambahkan element pada Array** <br>
+  Tambahkan `count` di `for` untuk menghitung otomatis.
+
+```PHP
+   <?php
+$hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
+$hari[] = "Libur";
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hari-hari</title>
+    <style>
+        div {
+            height: 50px;
+            width: 70px;
+            line-height: 50px;
+            background-color: salmon;
+            margin: 3px;
+            float: left;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <?php for ($i = 0; $i < count($hari); $i++) : ?>
+        <div> <?= $hari[$i]; ?> </div>
+    <?php endfor; ?>
+
+</body>
+
+</html>
+```
