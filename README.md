@@ -601,7 +601,7 @@ Kita membuat sendiri function, ketika membuat project terkadang kita harus membu
 
 # Array
 
-Sebuah variabel yang bisa menampung lebih dari 1 nilai. Kenapa kita memerlukannya? seperti tempat pensil warna. Repot ketika kita harus mencari warna tertentu jika pensilnya tidak disimpan disebuah tempat. Jika menggunakan sebuah tempat pensil, maka akan tersimpan dengan rapih dan gampang dicari.
+Sebuah variabel yang bisa menampung lebih dari 1 nilai. Kenapa kita memerlukannya? seperti tempat pensil warna. Repot ketika kita harus mencari warna tertentu jika pensilnya tidak disimpan disebuah tempat. Jika menggunakan sebuah tempat pensil, maka akan tersimpan dengan rapih dan gampang dicari. Disini kita akan beri contoh **array numeric** yaitu array yang indexnya angka. dan **array associative** yaitu indexnya string yang kita buat untuk mengasosiasikan dengan nilainya.
 
 ```PHP cara lama
 <?php
@@ -746,6 +746,78 @@ $hari[] = "Libur";
     <?php for ($i = 0; $i < count($hari); $i++) : ?>
         <div> <?= $hari[$i]; ?> </div>
     <?php endfor; ?>
+
+</body>
+
+</html>
+```
+
+- **Menggunakan `foreach` untuk menampilkan di website.**
+
+  ```PHP
+  <?php foreach ($hari as $h) : ?>
+       <div><?= $h; ?></div>
+   <?php endforeach; ?>
+  ```
+
+- **Latihan 1** <br>
+  Menampilkan semua data secara langsung.
+
+  ```PHP foreach
+     <ul>
+       <?php foreach ($mahasiswa as $mhs) : ?>
+           <li><?= $mhs; ?></li>
+       <?php endforeach; ?>
+     </ul>
+  ```
+
+  ```PHP foreach echo
+    <ul>
+        <li><?= $mahasiswa[0]; ?></li>
+        <li><?= $mahasiswa[1]; ?></li>
+        <li><?= $mahasiswa[2]; ?></li>
+        <li><?= $mahasiswa[3]; ?></li>
+    </ul>
+  ```
+
+## Array Multidimensi
+
+Ada Array di dalam array.
+
+```PHP
+<?php
+$mahasiswa = [
+
+ ["Lerian Febriana", "04020202", "Manajemen Informatika", "kanglerian@gmail.com"],
+ ["Ummu Hanin", "03030303", "Perpajakan", "ummuhanin@gmail.com"],
+
+];
+
+?>
+```
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+</head>
+
+<body>
+
+    <h1>Daftar Mahasiswa</h1>
+    <?php foreach ($mahasiswa as $mhs) : ?>
+        <ul>
+            <li><?= $mhs[0]; ?></li>
+            <li><?= $mhs[1]; ?></li>
+            <li><?= $mhs[2]; ?></li>
+            <li><?= $mhs[3]; ?></li>
+        </ul>
+    <?php endforeach; ?>
 
 </body>
 
