@@ -364,6 +364,8 @@ contoh:
    hasil : maka hasilnya adalah true, karena X lebih kecil dari 20 dan X jika dibagi 2 sisanya 0.
 ```
 
+---
+
 # Control Flow (Struktur Kendali)
 
 alur bagaimana program kita dibaca oleh Intrepreter PHP. Normalnya dibaca dari atas ke bawah, dari kiri ke kanan. Ini kita bisa atur sendiri.
@@ -484,6 +486,8 @@ Ketika ingin mengerjakan sebuah blok program tanpa menulis ulang script. Disini 
 - ternary (menggantikan if dan else menjadi sederhana)
 - switch
 
+---
+
 # Function
 
 Potongan baris baris kode yang akan mempermudah kita dalam membuat program. Kode program ini kita bisa kasih nama dan kita panggil berulang-ulang.
@@ -599,6 +603,8 @@ Kita membuat sendiri function, ketika membuat project terkadang kita harus membu
 
   > maka hasilnya: Halo selamat pagi Lerian. Jika parameters tidak diisi maka akan menghasilkan Halo selamat datang Peserta didik baru.
 
+---
+
 # Array
 
 Sebuah variabel yang bisa menampung lebih dari 1 nilai. Kenapa kita memerlukannya? seperti tempat pensil warna. Repot ketika kita harus mencari warna tertentu jika pensilnya tidak disimpan disebuah tempat. Jika menggunakan sebuah tempat pensil, maka akan tersimpan dengan rapih dan gampang dicari. Disini kita akan beri contoh **array numeric** yaitu array yang indexnya angka. dan **array associative** yaitu indexnya string yang kita buat untuk mengasosiasikan dengan nilainya.
@@ -616,6 +622,8 @@ Sebuah variabel yang bisa menampung lebih dari 1 nilai. Kenapa kita memerlukanny
 ```
 
 > Tipe data pada array boleh berbeda, contohnya element-element bisa digabung antara string, integer boolean dan lain lain.
+
+---
 
 ## Cara menampilkan Array Debugging
 
@@ -668,6 +676,8 @@ Sebuah variabel yang bisa menampung lebih dari 1 nilai. Kenapa kita memerlukanny
 
   hasilnya: array(4) { [0]=> string(5) "Senin" [1]=> string(6) "Selasa" [2]=> string(4) "Rabu" [3]=> string(5) "Kamis" }
 
+---
+
 ## Menampilkan Array (pengulangan)
 
 - **Gunakan `for` untuk menampilkan di website.**
@@ -709,6 +719,7 @@ $hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"]
 
 </html>
 ```
+---
 
 - **Menambahkan element pada Array** <br>
   Tambahkan `count` di `for` untuk menghitung otomatis.
@@ -751,6 +762,7 @@ $hari[] = "Libur";
 
 </html>
 ```
+---
 
 - **Menggunakan `foreach` untuk menampilkan di website.**
 
@@ -779,6 +791,7 @@ $hari[] = "Libur";
         <li><?= $mahasiswa[3]; ?></li>
     </ul>
   ```
+---
 
 ## Array Multidimensi
 
@@ -823,3 +836,136 @@ $mahasiswa = [
 
 </html>
 ```
+---
+
+```HTML
+<body>
+
+    <p>Coba cetak nama Ummu Hanin?</p>
+    <h1><?= $mahasiswa[1][0]; ?></h1>
+
+</body>
+```
+
+---
+
+```PHP
+<?php
+$angka = [[1,2,3],[4,5,6],[7,8,9]];
+echo $angka[1][1];
+?>
+```
+
+# Associative Array
+Bagaimana jika value di dalam element Array tertukar, nah ini adalah solusi dari masalah itu. Kita ngasih tau PHP bahwa contoh value ini nama lho, value ini NRP lho, value ini alamat lho. Karena yang sebelumnya itu array numeric. **Key nya itu adalah string yang kita buat sendiri**. Dan yang sekarang kita bikin sendiri :
+
+```PHP
+$mahasiswa = [
+   "nama" => "Lerian Febriana",
+   "nrp" => "010234023",
+   "email" => "kanglerian@gmail.com",
+   "jurusan" => "Sistem Informasi"
+];
+echo $mahasiswa["nama"];
+```
+> hasilnya : Lerian Febriana
+
+```PHP Multidimensi
+$mahasiswa = [
+
+    [
+        "nama" => "Lerian Febriana",
+        "nrp" => "010234023",
+        "email" => "kanglerian@gmail.com",
+        "jurusan" => "Sistem Informasi"
+    ],
+    [
+        "nama" => "Ummu Hanin",
+        "nrp" => "0464547493",
+        "email" => "umuhannin@gmail.com",
+        "jurusan" => "Perpajakan"
+    ],
+
+];
+echo $mahasiswa[1]["nama"];
+```
+> hasilnya : Ummu Hanin
+
+```PHP Multidimensi
+$mahasiswa = [
+
+    [
+        "nama" => "Lerian Febriana",
+        "nrp" => "010234023",
+        "email" => "kanglerian@gmail.com",
+        "jurusan" => "Sistem Informasi"
+    ],
+    [
+        "nama" => "Ummu Hanin",
+        "nrp" => "0464547493",
+        "email" => "umuhannin@gmail.com",
+        "jurusan" => "Perpajakan",
+        "tugas" => [90,80,70]
+    ],
+
+];
+echo $mahasiswa[1]["tugas"][0];
+```
+> hasilnya : 90
+
+---
+```PHP
+<?php
+$mahasiswa = [
+
+    [
+        "nama" => "Lerian Febriana",
+        "nrp" => "04020202",
+        "jurusan" => "Manajemen Informatika",
+        "email" => "kanglerian@gmail.com",
+        "photo" => "photo1.png"
+    ],
+    [
+        "nama" => "Ummu Hanin",
+        "nrp" => "0878862",
+        "jurusan" => "Perpajakan",
+        "email" => "ummuhanin@gmail.com",
+        "photo" => "photo2.png"
+    ],
+
+];
+
+?>
+```
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+</head>
+
+<body>
+
+    <h1>Daftar Mahasiswa</h1>
+    <?php foreach ($mahasiswa as $mhs) : ?>
+        <ul>
+            <li>
+                <img src="img/<?= $mhs["photo"] ?>" alt="">
+            </li>
+            <li>Nama: <?= $mhs["nama"]; ?></li>
+            <li>NRP: <?= $mhs["nrp"]; ?></li>
+            <li>Jurusan: <?= $mhs["jurusan"]; ?></li>
+            <li>Email: <?= $mhs["email"]; ?></li>
+        </ul>
+    <?php endforeach; ?>
+
+</body>
+
+</html>
+```
+
