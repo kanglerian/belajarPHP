@@ -1028,19 +1028,12 @@ echo $x;
 
 adalah variabel-variabel yang sudah dimiliki oleh PHP yang bisa kita gunakan dimanapun dan kapanpun di dalam halaman PHP kita. Dan semua ini adalah **array assosiative**.
 
-- **$\_GET**<br>
-  ```PHP
-  <?php
-     var_dump($_GET);
-  ?>
-  ```
-  > hasilnya : array(0) { }
-- **$\_POST**<br>
+### **$\_GET**
 
 ```PHP
-  <?php
-     var_dump($_POST);
-  ?>
+<?php
+   var_dump($_GET);
+?>
 ```
 
 > hasilnya : array(0) { }
@@ -1179,4 +1172,54 @@ $mahasiswa = [
 </body>
 
 </html>
+```
+
+---
+
+**Latihan Profile 2** <br>
+isset adalah sebuah function yang fungsinya "apakah variabel tersebut udah pernah dibikin atau belum?". Kalau kita langsung cetak `detail.php` maka hasilnya akan `error undefined`. Agar tidak terjadi undefined, maka user harus di pindahkan ke `index.php` agar dia membawa data. Maka begini cara mengatasinya, simpan ini di detail.php :
+
+```PHP
+<?php
+if(
+   !isset($_GET["photo"]) ||
+   !isset($_GET["nrp"]) ||
+   !isset($_GET["nama"]) ||
+   !isset($_GET["jurusan"]) ||
+   !isset($_GET["email"])
+
+   ){
+   //redirect
+   header("Location: index.php");
+   exit;
+}
+?>
+```
+
+---
+
+### **$\_POST**
+
+```PHP
+  <?php
+     var_dump($_POST);
+  ?>
+```
+
+> hasilnya : array(0) { }
+
+---
+
+- **latihan POST**
+
+```HTML index.php
+    <form action="data.php" method="post">
+        Masukan nama :
+        <input type="text" name="nama" required>
+        <button type="submit" name="submit">simpan</button>
+    </form>
+```
+
+```HTML data.php
+ <h1>Selamat datang, <?= $_POST["nama"]; ?>!</h1>
 ```
