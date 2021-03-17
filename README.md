@@ -1085,11 +1085,6 @@ Menambahkan data variabel lagi dengan menambahkan `&` seperti ini : <br>
 
 > hasilnya: /opt/lampp/htdocs/belajarPHP/index.php
 
-- **$\_SESSION**<br>
-- **$\_COOKIE**<br>
-- **$\_REQUEST**<br>
-- **$\_ENV**<br>
-
 ---
 
 **Latihan Profile 1** <br>
@@ -1223,3 +1218,29 @@ if(
 ```HTML data.php
  <h1>Selamat datang, <?= $_POST["nama"]; ?>!</h1>
 ```
+
+> jika `action` nya kosong, maka akan dikirim ke halaman itu sendiri. Default dari method adalah `get`
+
+- **Latihan POST 1 halaman** <br>
+
+```PHP
+    <?php if (isset($_POST["submit"])) : ?>
+        <h1>Halo, selamat datang <?= $_POST["nama"]; ?></h1>
+    <?php endif; ?>
+    <form action="" method="post">
+        Masukan nama :
+        <input type="text" name="nama" required>
+        <button type="submit" name="submit">simpan</button>
+    </form>
+```
+
+---
+
+-- **Latihan Sistem Login** <br>
+
+---
+
+- **$\_SESSION**<br>
+- **$\_COOKIE**<br>
+- **$\_REQUEST**<br>
+- **$\_ENV**<br>
