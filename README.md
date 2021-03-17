@@ -719,6 +719,7 @@ $hari = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"]
 
 </html>
 ```
+
 ---
 
 - **Menambahkan element pada Array** <br>
@@ -762,6 +763,7 @@ $hari[] = "Libur";
 
 </html>
 ```
+
 ---
 
 - **Menggunakan `foreach` untuk menampilkan di website.**
@@ -791,6 +793,7 @@ $hari[] = "Libur";
         <li><?= $mahasiswa[3]; ?></li>
     </ul>
   ```
+
 ---
 
 ## Array Multidimensi
@@ -836,6 +839,7 @@ $mahasiswa = [
 
 </html>
 ```
+
 ---
 
 ```HTML
@@ -857,6 +861,7 @@ echo $angka[1][1];
 ```
 
 # Associative Array
+
 Bagaimana jika value di dalam element Array tertukar, nah ini adalah solusi dari masalah itu. Kita ngasih tau PHP bahwa contoh value ini nama lho, value ini NRP lho, value ini alamat lho. Karena yang sebelumnya itu array numeric. **Key nya itu adalah string yang kita buat sendiri**. Dan yang sekarang kita bikin sendiri :
 
 ```PHP
@@ -868,6 +873,7 @@ $mahasiswa = [
 ];
 echo $mahasiswa["nama"];
 ```
+
 > hasilnya : Lerian Febriana
 
 ```PHP Multidimensi
@@ -889,6 +895,7 @@ $mahasiswa = [
 ];
 echo $mahasiswa[1]["nama"];
 ```
+
 > hasilnya : Ummu Hanin
 
 ```PHP Multidimensi
@@ -911,9 +918,11 @@ $mahasiswa = [
 ];
 echo $mahasiswa[1]["tugas"][0];
 ```
+
 > hasilnya : 90
 
 ---
+
 ```PHP
 <?php
 $mahasiswa = [
@@ -969,3 +978,121 @@ $mahasiswa = [
 </html>
 ```
 
+# GET & POST
+
+## Variabel Scope
+
+```PHP
+<?php
+
+$x = 10;
+
+function tampilX(){
+   $x = 20;
+   echo $x;
+}
+
+tampilX();
+echo "<br>";
+echo $x;
+
+?>
+
+```
+
+> Maka hasilnya adalah : 20 dan 10. Kenapa berbeda? karena yang ada difunction dia punya lingkup sendiri. Kalau $x = 10; itu variabel lokal khusus file ini.
+
+```PHP
+<?php
+
+$x = 10;
+
+function tampilX(){
+   global $x;
+   echo $x;
+}
+
+tampilX();
+echo "<br>";
+echo $x;
+
+?>
+
+```
+
+> Maka hasilnya adalah : 10. Karena global akan mencari "ada tidak variabel X di luar function?"
+
+---
+
+## Super Globals
+
+adalah variabel-variabel yang sudah dimiliki oleh PHP yang bisa kita gunakan dimanapun dan kapanpun di dalam halaman PHP kita. Dan semua ini adalah **array assosiative**.
+
+- **$\_GET**<br>
+  ```PHP
+  <?php
+     var_dump($_GET);
+  ?>
+  ```
+  > hasilnya : array(0) { }
+- **$\_POST**<br>
+
+```PHP
+  <?php
+     var_dump($_POST);
+  ?>
+```
+
+> hasilnya : array(0) { }
+
+---
+
+Cara untuk memasukan data ke $\_GET maka tinggal tulis seperti ini :
+
+```PHP
+<?php
+   $_GET["nama"] = "Lerian Febriana";
+   $_GET["nrp"] = "1100293739";
+
+   var_dump($_GET);
+?>
+```
+
+---
+
+Atau kita bisa menulisnya di url address browser kita, dengan menambahkan `?` untuk memasukan data ke dalam $\_GET seperti ini :
+
+`http://localhost/belajarPHP/index.php?nama=Lerian%20Febriana` <br>
+
+> hasilnya : array(1) { ["nama"]=> string(15) "Lerian Febriana" } <br>
+
+Menambahkan data variabel lagi dengan menambahkan `&` seperti ini : <br>
+
+`http://localhost/belajarPHP/index.php?nama=Lerian%20Febriana&nrp=124863511` <br>
+
+> hasilnya : array(1) { ["nama"]=> string(15) "Lerian Febriana" ["nrp"]=> string(9) "124863511" } <br>
+
+---
+
+- **$\_SERVER**<br>
+
+```PHP
+  <?php
+     var_dump($_SERVER);
+  ?>
+```
+
+> hasilnya : informasi server kita.
+
+```PHP
+<?php
+   echo $_SERVER["SCRIPT_FILENAME"];
+?>
+```
+
+> hasilnya: /opt/lampp/htdocs/belajarPHP/index.php
+
+- **$\_SESSION**<br>
+- **$\_COOKIE**<br>
+- **$\_REQUEST**<br>
+- **$\_ENV**<br>
