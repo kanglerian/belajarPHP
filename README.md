@@ -1096,3 +1096,87 @@ Menambahkan data variabel lagi dengan menambahkan `&` seperti ini : <br>
 - **$\_COOKIE**<br>
 - **$\_REQUEST**<br>
 - **$\_ENV**<br>
+
+---
+
+**Latihan Profile 1** <br>
+
+```PHP | Data Mahasiswa
+<?php
+
+$mahasiswa = [
+
+    [
+        "nama" => "Lerian Febriana",
+        "nrp" => "1122334455",
+        "jurusan" => "Sistem Informasi",
+        "email" => "kanglerian@gmail.com",
+        "photo" => "photo1.png"
+
+    ], [
+        "nama" => "Ummu Hanin",
+        "nrp" => "8877669955",
+        "jurusan" => "Sistem Pajak",
+        "email" => "ummuhanin@gmail.com",
+        "photo" => "photo2.png"
+
+    ],
+
+];
+?>
+```
+
+```HTML index.php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET</title>
+</head>
+
+<body>
+
+    <h1>Data Mahasiswa</h1>
+    <ul>
+        <?php foreach ($mahasiswa as $mhs) : ?>
+            <li>
+                <a href="detail.php?nama=<?= $mhs["nama"]; ?>&nrp=<?= $mhs["nrp"]; ?>&jurusan=<?= $mhs["jurusan"]; ?>&email=<?= $mhs["email"]; ?>&photo=<?= $mhs["photo"]; ?>">
+                    <?= $mhs["nama"]; ?></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+
+</html>
+```
+
+```HTML detail.php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Mahasiswa</title>
+</head>
+
+<body>
+
+    <ul>
+        <li><img src="img/<?= $_GET["photo"]; ?>"></li>
+        <li><?= $_GET["nrp"]; ?></li>
+        <li><?= $_GET["nama"]; ?></li>
+        <li><?= $_GET["jurusan"]; ?></li>
+        <li><?= $_GET["email"]; ?></li>
+    </ul>
+
+    <a href="index.php">Kembali</a>
+
+</body>
+
+</html>
+```
