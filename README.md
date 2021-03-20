@@ -1236,7 +1236,79 @@ if(
 
 ---
 
--- **Latihan Sistem Login** <br>
+- **Latihan Sistem Login** <br>
+
+```PHP index.php
+<?php
+//cek tombol submit sudah ditekan apa belum
+if (isset($_POST["submit"])) {
+    //cek username dan password
+    if ($_POST["username"] == "admin" && $_POST["password"] == "123") {
+        //jika benar, redirect ke hal admin
+        header("Location: admin.php");
+        exit;
+    } else {
+        //jika salah, tampilkan pesan salah
+        $error = true;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login Admin</h1>
+    <?php if (isset($error)) : ?>
+        <p style="color:red;font-style:italic;">Username atau Password salah</p>
+    <?php endif; ?>
+    <ul>
+        <form action="" method="post">
+            <li>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </li>
+            <li>
+                <button type="submit" name="submit">Login</button>
+            </li>
+        </form>
+    </ul>
+</body>
+
+</html>
+```
+
+```PHP admin.php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Admin</title>
+</head>
+
+<body>
+
+ <h1>Selamat Datang Admin!</h1>
+
+ <a href="index.php">logout</a>
+
+</body>
+
+</html>
+```
 
 ---
 
@@ -1244,3 +1316,42 @@ if(
 - **$\_COOKIE**<br>
 - **$\_REQUEST**<br>
 - **$\_ENV**<br>
+
+# Database & MySQL
+
+**Data** adalah representasi Fakta di dunia nyata. Misalnya : nama, judul buku, no ktp, harga barang, foto, dokumen, video, musik dan lain-lain. Biasanya data-data ini saling terkait sehingga bisa kita hubungkan. Contohnya : <br> `Buku = judul, pengarang, penerbit, tahun terbit, harga, jumlah halaman dll` atau `Mahasiswa = nama, nim, email, jurusan dll.` <br>
+
+Bagaimana cara menyimpan dan mengelola data? <br>
+Bisa menggunakan notepad, Excel tapi tidak efektif jika data sudah banyak. Kenapa? karena **kapasitas** akan semakin besar, **kecepatan** akses, **keamanan**, dan **duplikasi**. <br>
+
+Solusinya adalah **skabilitas**, **tersedia**, **aman** dan **permanen** yaitu Database. <br>
+
+**Apa itu Database?** <br>
+Database adalah data yg ada di dalam DBMS. <br>
+
+**DBMS** adalah software pengelola Database. Contoh : Oracle, **MySQL**, SQL Server, PostgreSQL, MongoDB. <br>
+
+**Macam-macam DBMS** <br>
+
+1. **Relational DBMS** <br>
+   Didalam Database ini bisa banyak tabel. Contoh: Tabel Mahasiswa, Tabel Dosen, Tabel Mata Kuliah. Dan ini kita bisa relasikan atau kita sambungkan. <br>
+
+   - **Table** di dalamnya adalah Field.
+   - **Record** adalah 1 data yang terekam di dalam Field.
+   - **Primary Key** adalah sebuah data, yang dapat merepresentasikan satu baris record secara unik (tidak boleh ada data yang sama). Contoh : NIM, No KTP, email, id.
+   - **Relationship** hubungan antar tabel
+   - **Normalization** sebuah proses untuk membuat sebuah tabel di database.
+
+2. Hierarchical DBMS
+3. Network DBMS
+4. NoSQL DBMS
+
+---
+
+## MySQL
+
+- **Cara akses MySQL / PHPMyAdmin** :
+
+1. Install XAMPP
+2. Nyalakan MySQL di XAMPP
+3. Ketik di URL Browser `localhost/phpmyadmin`
