@@ -1355,3 +1355,14 @@ Database adalah data yg ada di dalam DBMS. <br>
 1. Install XAMPP
 2. Nyalakan MySQL di XAMPP
 3. Ketik di URL Browser `localhost/phpmyadmin`
+
+- **Cara membuat database** <br>
+
+1. Pilis Databases
+2. Create Database `database_name`
+3. Klik tombol create
+
+- **Cara menambahkan table** <br>
+
+1. Ketik `table_name`
+2. Tentukan berapa `column` yang akan disediakan
