@@ -1366,3 +1366,94 @@ Database adalah data yg ada di dalam DBMS. <br>
 
 1. Ketik `table_name`
 2. Tentukan berapa `column` yang akan disediakan
+
+<hr>
+
+## PHP + MySQL
+
+Untuk menghubungkan PHP dan MySQL maka tersedia beberapa cara, yaitu :
+
+- Ekstensi MySQL (versi lama, not recommended)
+- Ekstensi MySQLi (versi baru) = Optimal untuk satu database ✅
+- PDO (PHP Data Object) = Kita bisa terhubung dengan berbagai Database. Sehingga kodingnya tidak berubah.
+
+### MySQLi
+
+1. mysqli_fetch_row();
+2. mysqli_fetch_assoc();
+3. mysqli_fetch_array();
+4. mysqli_fetch_object()
+
+### Login Sederhana
+
+```PHP index.php
+<?php
+//cek tombol submit sudah ditekan apa belum
+if (isset($_POST["submit"])) {
+    //cek username dan password
+    if ($_POST["username"] == "admin" && $_POST["password"] == "123") {
+        //jika benar, redirect ke hal admin
+        header("Location: admin.php");
+        exit;
+    } else {
+        //jika salah, tampilkan pesan salah
+        $error = true;
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login Admin</h1>
+    <?php if (isset($error)) : ?>
+        <p style="color:red;font-style:italic;">Username atau Password salah</p>
+    <?php endif; ?>
+    <ul>
+        <form action="" method="post">
+            <li>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+            </li>
+            <li>
+                <button type="submit" name="submit">Login</button>
+            </li>
+        </form>
+    </ul>
+</body>
+
+</html>
+```
+
+```HTML admin page
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+
+<body>
+
+    <h1>Selamat Datang Admin!</h1>
+
+    <a href="index.php">logout</a>
+
+</body>
+
+</html>
+```
